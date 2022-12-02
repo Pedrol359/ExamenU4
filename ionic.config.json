@@ -1,5 +1,7 @@
 {
-  "name": "New Ionic App",
-  "integrations": {},
+  "name": "ExamenU4",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
