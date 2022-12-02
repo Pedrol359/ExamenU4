@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva Reservacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+        <ion-item>
+          <ion-label>Fecha</ion-label>
+          <ion-datetime-button slot="end" datetime="date_in"></ion-datetime-button>
+        </ion-item>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="date_in" presentation="date" value={{minDate}} 
+            [showDefaultButtons]="true"  min={{minDate}} [(ngModel)]="date"
+            (ionChange)="change()"></ion-datetime>
+          </ng-template>
+        </ion-modal>          
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-range [ticks]="true" [snaps]="true" [min]="1" [max]="5" [(ngModel)]="piscina" ></ion-range>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>
+          Brincolin
+        </ion-label>
+        <ion-toggle slot="end" [(ngModel)]="brincolin" (ionChange)="onIonChangeBrincolin($event)"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Mesa
+        </ion-label>
+        <ion-toggle slot="end" [(ngModel)]="mesa" (ionChange)="onIonChangeMesa($event)"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Futbolito
+        </ion-label>
+        <ion-toggle slot="end" [(ngModel)]="futbolito" (ionChange)="onIonChangeFut($event)"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Total
+        </ion-label>
+        <ion-label slot="end">{{total | currency}}</ion-label>
+      </ion-item>
+      <ion-button color="primary" (click)="newReservacion()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

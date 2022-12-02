@@ -9,6 +9,7 @@ import { Reservacion } from '../models/reservacion';
 })
 export class CasinoService {
   private usersLogin = ['admin']
+  private current:Cliente=new Cliente();
   constructor(private firestore: AngularFirestore) {  }
 
   public newReservacion(reservacion: Reservacion) {
@@ -26,9 +27,17 @@ export class CasinoService {
       })
     );
   }
-
+  public getClienteByNum(num:String){
+    
+  }
+  public currentCliente(cliente:Cliente){
+    this.current=cliente;
+  }
+  public getCurrent():Cliente{
+    return this.current
+  }
   public getReservaciones() {
-    return this.firestore.collection('Reservaciones').snapshotChanges().pipe(
+    return this.firestore.collection('Reservacion').snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Reservacion;

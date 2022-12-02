@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reservaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>
+          Proximos 2
+        </ion-label>
+        <ion-toggle slot="end" [(ngModel)]="tog" (ionChange)="onChange($event)">
+
+        </ion-toggle>
+      </ion-item>
+      <ion-list *ngFor="let it of res">
+        <ion-item>
+          <ion-label >{{it.nombre}}</ion-label>
+          <ion-label>{{it.telefono}}</ion-label>
+          <ion-label>{{it.fecha}}</ion-label>
+          <ion-label>{{it.total}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>
