@@ -12,12 +12,12 @@
         <ion-col size-sm="12" size-md="6" size-lg="3">
             <ion-item lines="full">
               <ion-label position="floating" >Numero</ion-label>
-              <ion-input type="text" [(ngModel)]="cliNum"></ion-input>
+              <ion-input type="text" [(ngModel)]="cliNum" (keyup.enter)="login(cliNum)"></ion-input>
             </ion-item>           
             <ion-row>
               <ion-col>
                 <ion-button 
-                   type="submit" color="danger" expand="block" (click)="login(cliNum)" 
+                   type="submit" color="primary" expand="block" (click)="login(cliNum)" 
                 >Ingresar</ion-button>
                 <!-- *ngIf="myForm.valid" -->
               </ion-col>

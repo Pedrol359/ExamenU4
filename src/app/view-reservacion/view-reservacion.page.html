@@ -1,6 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Reservaciones</ion-title>
+    <ion-button
+      class="cerrarSesion"
+      (click)="cerrarSesion()"
+      slot="end"
+      color="danger"
+    >
+      <ion-icon name="exit"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -18,9 +26,9 @@
       <ion-list *ngFor="let it of res">
         <ion-item>
           <ion-label >{{it.nombre}}</ion-label>
-          <ion-label>{{it.telefono}}</ion-label>
+          <ion-label class="select">{{it.telefono}}</ion-label>
           <ion-label>{{it.fecha}}</ion-label>
-          <ion-label>{{it.total}}</ion-label>
+          <ion-label>{{it.total  | currency }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-col>

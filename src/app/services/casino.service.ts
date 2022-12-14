@@ -10,6 +10,7 @@ import { Reservacion } from '../models/reservacion';
 export class CasinoService {
   private usersLogin = ['admin']
   private current:Cliente=new Cliente();
+
   constructor(private firestore: AngularFirestore) {  }
 
   public newReservacion(reservacion: Reservacion) {
